@@ -1,0 +1,18 @@
+#!/bin/bash
+
+xOffset=<%= switchWindowXOffset %>
+
+curX=$(xwininfo -id `xprop -root | grep -a "_NET_ACTIVE_WINDOW(WINDOW)"| cut -d ' ' -f 5` | grep -a "Absolute upper-left X" | cut -d ' ' -f 7)
+
+if [ $curX -ge $xOffset ]
+then
+    newX=0
+else
+    newX=$xOffset
+fi
+
+wmctrl -r :ACTIVE: -b remove,maximized_horz
+wmctrl -r :ACTIVE: -b remove,maximized_vert
+wmctrl -r :ACTIVE: -e 0,$newX,-1,-1,-1
+wmctrl -r :ACTIVE: -b add,maximized_horz
+wmctrl -r :ACTIVE: -b add,maximized_vert

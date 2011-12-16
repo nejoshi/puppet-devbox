@@ -1,0 +1,35 @@
+deb http://archive.ubuntu.com/ubuntu natty main restricted
+deb-src http://archive.ubuntu.com/ubuntu natty main restricted
+
+deb http://archive.ubuntu.com/ubuntu natty-updates main restricted
+deb-src http://archive.ubuntu.com/ubuntu natty-updates main restricted
+
+deb http://archive.ubuntu.com/ubuntu natty universe
+deb-src http://archive.ubuntu.com/ubuntu natty universe
+deb http://archive.ubuntu.com/ubuntu natty-updates universe
+deb-src http://archive.ubuntu.com/ubuntu natty-updates universe
+
+deb http://archive.ubuntu.com/ubuntu natty multiverse
+deb-src http://archive.ubuntu.com/ubuntu natty multiverse
+deb http://archive.ubuntu.com/ubuntu natty-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu natty-updates multiverse
+
+deb http://archive.ubuntu.com/ubuntu natty-security main restricted
+deb-src http://archive.ubuntu.com/ubuntu natty-security main restricted
+deb http://archive.ubuntu.com/ubuntu natty-security universe
+deb-src http://archive.ubuntu.com/ubuntu natty-security universe
+deb http://archive.ubuntu.com/ubuntu natty-security multiverse
+deb-src http://archive.ubuntu.com/ubuntu natty-security multiverse
+
+deb http://extras.ubuntu.com/ubuntu natty main
+deb-src http://extras.ubuntu.com/ubuntu natty main
+
+deb http://archive.canonical.com/ natty partner
+deb-src http://archive.canonical.com/ natty partner
+
+deb http://ppa.launchpad.net/jerome-etienne/neoip/ubuntu natty main
+deb-src http://ppa.launchpad.net/jerome-etienne/neoip/ubuntu natty main
+
+deb http://dl.google.com/linux/chrome/deb/ stable main
+
+deb http://download.virtualbox.org/virtualbox/debian natty contrib

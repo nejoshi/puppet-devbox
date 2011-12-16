@@ -1,0 +1,73 @@
+#!/bin/bash
+# syncftp v0.0.1
+
+hash lftp &> /dev/null
+if [ $? -eq 1 ]; then
+	echo >&2 "Error: lftp is rqeuired to run syncftp.  Please install it before running syncftp again."
+	exit -1
+fi
+
+if [ -n "$1" ]
+then
+	if [ "$1" == "new" ]
+	then
+		if [ -e ".syncftp" ]
+		then
+			echo >&2 "Error: .syncftp file already exists.  Please delete it before trying again."
+			exit -1
+		else
+			echo -e "host=\"\"\nusername=\"\"\npassword=\"\"\nremoteDir=\"\"\n\n# Uncomment the lines below to enable settings as required.\n#noProxy=true" > .syncftp
+			exit 0
+		fi
+	else
+		echo >&2 "Error: action $1 doesn't exist."
+		exit -1
+	fi
+fi
+
+if [ ! -e ".syncftp" ]
+then
+	echo >&2 "Error: For syncftp to work, the .syncftp file needs to exist in the current working directory.  To generate a blank .syncftp file, type \"syncftp new\"."
+	exit -1
+fi
+
+source .syncftp
+
+# validate required variables
+if [ -z "$host" ]
+then
+	echo >&2 "Error: host required in .syncftp"
+	exit -1
+fi
+
+if [ -z "$username" ]
+then
+	echo >&2 "Error: username required in .syncftp"
+	exit -1
+fi
+
+if [ -z "$password" ]
+then
+	echo >&2 "Error: password required in .syncftp"
+	exit -1
+fi
+
+if [ -z "$remoteDir" ]
+then
+	echo >&2 "Error: remoteDir required in .syncftp"
+	exit -1
+fi
+
+# if set, turn off proxy
+if [ -n "$noProxy" ]
+then
+	unset all_proxy
+	unset ftp_proxy
+fi
+
+lftp -c "set ftp:list-options -a;
+set ftp:ssl-allow 0;
+open ftp://$username:$password@$host;
+lcd `pwd`;
+cd $remoteDir;
+mirror --reverse --verbose --exclude-glob .git/ --exclude-glob .svn/ --exclude-glob .syncftp"

@@ -1,0 +1,6 @@
+auth.conf
+etckeeper-commit-post
+etckeeper-commit-pre
+fileserver.conf
+manifests/site.pp
+puppet.conf
