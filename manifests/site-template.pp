@@ -45,15 +45,10 @@ node devbox {
 	}
 	include nodejs
 	include octave
-	include phantomjs
 	class { redshift:
 		lat => $redshiftLat,
 		lon => $redshiftLong,
 		user => $ubuntuUsername,
-	}
-	class { ruby:
-		user => $ubuntuUsername,
-		rubyVersion => '1.9.2',
 	}
 	include skype
 	class { 'ssh-client':

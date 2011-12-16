@@ -1,35 +1,35 @@
-deb http://archive.ubuntu.com/ubuntu natty main restricted
-deb-src http://archive.ubuntu.com/ubuntu natty main restricted
+deb http://archive.ubuntu.com/ubuntu/ oneiric main restricted
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric main restricted
 
-deb http://archive.ubuntu.com/ubuntu natty-updates main restricted
-deb-src http://archive.ubuntu.com/ubuntu natty-updates main restricted
+deb http://archive.ubuntu.com/ubuntu/ oneiric-updates main restricted
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric-updates main restricted
 
-deb http://archive.ubuntu.com/ubuntu natty universe
-deb-src http://archive.ubuntu.com/ubuntu natty universe
-deb http://archive.ubuntu.com/ubuntu natty-updates universe
-deb-src http://archive.ubuntu.com/ubuntu natty-updates universe
+deb http://archive.ubuntu.com/ubuntu/ oneiric universe
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric universe
+deb http://archive.ubuntu.com/ubuntu/ oneiric-updates universe
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric-updates universe
 
-deb http://archive.ubuntu.com/ubuntu natty multiverse
-deb-src http://archive.ubuntu.com/ubuntu natty multiverse
-deb http://archive.ubuntu.com/ubuntu natty-updates multiverse
-deb-src http://archive.ubuntu.com/ubuntu natty-updates multiverse
+deb http://archive.ubuntu.com/ubuntu/ oneiric multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric multiverse
+deb http://archive.ubuntu.com/ubuntu/ oneiric-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric-updates multiverse
 
-deb http://archive.ubuntu.com/ubuntu natty-security main restricted
-deb-src http://archive.ubuntu.com/ubuntu natty-security main restricted
-deb http://archive.ubuntu.com/ubuntu natty-security universe
-deb-src http://archive.ubuntu.com/ubuntu natty-security universe
-deb http://archive.ubuntu.com/ubuntu natty-security multiverse
-deb-src http://archive.ubuntu.com/ubuntu natty-security multiverse
+deb http://archive.ubuntu.com/ubuntu/ oneiric-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ oneiric-backports main restricted universe multiverse
 
-deb http://extras.ubuntu.com/ubuntu natty main
-deb-src http://extras.ubuntu.com/ubuntu natty main
+deb http://security.ubuntu.com/ubuntu oneiric-security main restricted
+deb-src http://security.ubuntu.com/ubuntu oneiric-security main restricted
+deb http://security.ubuntu.com/ubuntu oneiric-security universe
+deb-src http://security.ubuntu.com/ubuntu oneiric-security universe
+deb http://security.ubuntu.com/ubuntu oneiric-security multiverse
+deb-src http://security.ubuntu.com/ubuntu oneiric-security multiverse
 
-deb http://archive.canonical.com/ natty partner
-deb-src http://archive.canonical.com/ natty partner
+deb http://archive.canonical.com/ubuntu oneiric partner
+deb-src http://archive.canonical.com/ubuntu oneiric partner
 
-deb http://ppa.launchpad.net/jerome-etienne/neoip/ubuntu natty main
-deb-src http://ppa.launchpad.net/jerome-etienne/neoip/ubuntu natty main
+deb http://extras.ubuntu.com/ubuntu oneiric main
+deb-src http://extras.ubuntu.com/ubuntu oneiric main
 
 deb http://dl.google.com/linux/chrome/deb/ stable main
 
-deb http://download.virtualbox.org/virtualbox/debian natty contrib
+deb http://download.virtualbox.org/virtualbox/debian oneiric contrib

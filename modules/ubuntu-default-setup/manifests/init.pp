@@ -37,12 +37,6 @@ class ubuntu-default-setup ($user, $runUpdate) {
 	addAptKey { 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc':
 		email => 'info@virtualbox.org',
 	}
-	exec { "/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv 9E7A874FE356F3DA21C1D311DC36A41C2D83C357":
-		unless => "/usr/bin/apt-key list | /bin/grep neoip",
-		user => root,
-
-		before => Exec['apt-get update'],
-	}
 
 	exec { 'apt-get update':
 		command => $runUpdate ? {

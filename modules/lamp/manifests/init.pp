@@ -134,7 +134,7 @@ class lamp ($rootPassword, $timezone, $user) {
 	discoverPearChannel { 'components.ez.no': }
 	discoverPearChannel { 'pear.symfony-project.com': }
 
-	exec { '/usr/bin/pear install phpunit/PHPUnit':
+	exec { '/usr/bin/pear install pear.phpunit.de/PHPUnit':
 		onlyif => "/usr/bin/pear info phpunit/PHPUnit | grep \"No information found\"",
 		require => [
 			Exec['/usr/bin/pear upgrade pear'],

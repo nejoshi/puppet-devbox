@@ -1,5 +1,8 @@
 class nodejs {
-	package { 'libssl-dev':
+	package {[
+		'g++', 
+		'libssl-dev'
+	]:
 		ensure => present,
 	}
 
@@ -19,6 +22,7 @@ class nodejs {
 
 		require => [
 			File['/opt/packages/node-v0.6.6.tar.gz'],
+			Package['g++'],
 			Package['libssl-dev'],
 		]
 	}

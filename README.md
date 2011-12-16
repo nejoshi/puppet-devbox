@@ -44,13 +44,12 @@ gedit site.pp
 * LAMP ([Apache](http://httpd.apache.org), [MySQL](http://www.mysql.com) & [PHP](http://php.net))
   * Once installed, [phpMyAdmin](http://www.phpmyadmin.net) can be accessed at http://myadmin.local/
   * MySQL root password is set to `root` by default.
-* [RVM](http://beginrescueend.com) + [ruby](http://www.ruby-lang.org) + useful gems like bundler, lolcat & rails
+  * Also includes PEAR & PHPUnit
 * [nodejs](http://nodejs.org) + [npm](http://npmjs.org/) + [coffee](http://jashkenas.github.com/coffee-script/) + expresso + lessc + uglifyjs
-* [phantomjs](http://www.phantomjs.org/)
 * [Google Chrome](http://www.google.com/chrome)
 * [Sublime Text](http://www.sublimetext.com)
   * Includes Puppet & CoffeeScript code coloring
-* Other useful applications are included like [ack-grep](http://betterthangrep.com), [alarm-clock-applet](http://alarm-clock.pseudoberries.com), [filezilla](http://filezilla-project.org), [flux](http://stereopsis.com/flux/), [freemind](http://freemind.sourceforge.net), [libreoffice](http://www.libreoffice.org/), [meld](http://meld.sourceforge.net), [octave](http://www.gnu.org/software/octave), [ragel](http://www.complang.org/ragel) & [x-tile](http://www.giuspen.com/x-tile).
+* Other useful applications are included like [ack-grep](http://betterthangrep.com), [alarm-clock-applet](http://alarm-clock.pseudoberries.com), [filezilla](http://filezilla-project.org), [freemind](http://freemind.sourceforge.net), [libreoffice](http://www.libreoffice.org/), [meld](http://meld.sourceforge.net), [octave](http://www.gnu.org/software/octave) & [redshift](http://jonls.dk/redshift/).
 
 If you don't like any of these applications, feel free to comment them out of the site.pp file.
 
