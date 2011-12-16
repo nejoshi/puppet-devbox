@@ -3,10 +3,10 @@ This is a set of Puppet scripts to automate the build of a web developer box on 
 
 ## Requirements
 * Puppet 2.6.0 and later
-* Ubuntu 11.04 Desktop (works on both 32-bit or 64-bit)
+* Ubuntu 11.10 Oneiric Ocelot Desktop (works on both 32-bit or 64-bit)
 
 ## Instructions (VirtualBox)
-1. Create VM and install Ubuntu 11.04 Desktop through the ISOs (downloadable at <http://www.ubuntu.com>).
+1. Create VM and install Ubuntu 11.10 Oneiric Ocelot Desktop through the ISOs (downloadable at <http://www.ubuntu.com>).
 2. Whilst installing Ubuntu from the ISO, note down the username you used (or if you want to use the default for this Puppet script, it's `ubuntu`).
 3. After booting into Ubuntu, install Guest Additions by going to the VirtualBox Device menu and selecting "Install Guest Additions".
 4. After installing Guest Additions, reboot.
@@ -66,5 +66,5 @@ There is a module called `metacity-shortcuts` which does two things.
 2. Create directory `/var/www/<hostname>.local/public`.
 3. Place files in the public directory.
 
-## If you want to develop it further...
+## If you want to play with it...
 * There is an alias called `pup` which is setup in `~/.bashrc` to make it easy to call the site.pp file as needed (i.e. `sudo puppet "/etc/puppet/manifests/site.pp"`).

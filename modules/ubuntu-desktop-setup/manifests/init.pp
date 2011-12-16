@@ -1,4 +1,8 @@
 class ubuntu-desktop-setup ($user) {
+	package { 'gnome-shell':
+		ensure => present,
+	}
+
 	# turn off update manager because it's annoying when it pops up
 	# credits to http://lifehacker.com/5295449/disable-ubuntus-annoying-update-manager-popup
 	gconf { '/apps/update-notifier/auto_launch':

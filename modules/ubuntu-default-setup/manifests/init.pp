@@ -11,7 +11,7 @@ class ubuntu-default-setup ($user, $runUpdate) {
 
 	appendLineToFile { 'add pup alias':
 		file => "/home/$user/.bashrc",
-		line => 'alias pup=\"sudo puppet /etc/puppet/manifests/site.pp\"',
+		line => 'alias pup=\"sudo puppet apply /etc/puppet/manifests/site.pp\"',
 		user => $user,
 	}
 

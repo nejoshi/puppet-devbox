@@ -151,14 +151,36 @@ class lamp ($rootPassword, $timezone, $user) {
 		owner => $user,
 	}
 
+	file { '/opt/packages/phpmyadmin-3.4.8.tar.gz':
+		ensure => file,
+		owner => root,
+		group => root,
+		source => 'puppet:///modules/lamp/phpmyadmin-3.4.8.tar.gz',
+	}
+
+	exec { 'untar phpmyadmin':
+		command => '/bin/tar -xvzf /opt/packages/phpmyadmin-3.4.8.tar.gz',
+		creates => '/var/www/myadmin.local/phpMyAdmin-3.4.8-all-languages',
+		cwd => '/var/www/myadmin.local',
+		group => root,
+		user => root,
+
+		require => File['/opt/packages/phpmyadmin-3.4.8.tar.gz'],
+	}
+
+	exec { '/bin/mv phpMyAdmin-3.4.8-all-languages public':
+		cwd => '/var/www/myadmin.local',
+		group => root,
+		user => root,
+		require => Exec['untar phpmyadmin'],
+	}
+
 	file { '/var/www/myadmin.local/public':
 		ensure => directory,
 		group => 'www-data',
 		recurse => true,
-		source => 'puppet:///modules/lamp/phpmyadmin-3.4.5',
 		owner => $user,
-
-		require => File['/var/www/myadmin.local'],
+		require => Exec['/bin/mv phpMyAdmin-3.4.8-all-languages public'],
 	}
 
 	appendLineToFile { 'Add myadmin.local to hosts':
