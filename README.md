@@ -10,28 +10,30 @@ This is a set of Puppet scripts to automate the build of a web developer box on 
 2. Whilst installing Ubuntu from the ISO, note down the username you used (or if you want to use the default for this Puppet script, it's `ubuntu`).
 3. After booting into Ubuntu, install Guest Additions by going to the VirtualBox Device menu and selecting "Install Guest Additions".
 4. After installing Guest Additions, reboot.
-4. After the system has rebooted, open Terminal (Control + Alt + T).
-5. Run:
+5. After the system has rebooted, open Terminal (Control + Alt + T).
+6. Run:
 
-    sudo apt-get update
-    sudo apt-get install git puppet -y
-    cd /etc
-    sudo chown -R root:ubuntu puppet
-    sudo chmod -R g+w puppet
-    find puppet -type d | xargs sudo chmod g+s
-    cd puppet
-    git clone http://github.com/khoomeister/puppet-devbox
-    cd puppet-devbox
-    mv * ..
-    mv .git* ..
-    cd ..
-    rmdir puppet-devbox
-    cd manifests
-    cp site-template.pp site.pp
-    gedit site.pp
+```bash
+sudo apt-get update
+sudo apt-get install git puppet -y
+cd /etc
+sudo chown -R root:ubuntu puppet
+sudo chmod -R g+w puppet
+find puppet -type d | xargs sudo chmod g+s
+cd puppet
+git clone http://github.com/khoomeister/puppet-devbox
+cd puppet-devbox
+mv * ..
+mv .git* ..
+cd ..
+rmdir puppet-devbox
+cd manifests
+cp site-template.pp site.pp
+gedit site.pp
+```
 
-6. Read through the file & edit the settings to your liking (especially `$ubuntuUsername` if you used something other than `ubuntu`), save & quit.
-7. Run `sudo puppet site.pp`
+7. Read through the file & edit the settings to your liking (especially `$ubuntuUsername` if you used something other than `ubuntu`), save & quit.
+8. Run `sudo puppet site.pp`
 
 ## Features
 * Installs all the apps you need as a web developer
