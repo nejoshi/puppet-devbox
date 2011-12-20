@@ -88,11 +88,6 @@ class ubuntu-default-setup ($user, $runUpdate) {
 
 		require => File['/opt'],
 	}
-
-	# create user packages directory
-	file { "/home/$user/packages":
-		ensure => directory,
-	}
 }
 
 define appendLineToFile($file, $line, $user) {
