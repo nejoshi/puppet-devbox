@@ -50,6 +50,7 @@ node devbox {
 		lon => $redshiftLong,
 		user => $ubuntuUsername,
 	}
+	include ruby
 	include skype
 	class { 'ssh-client':
 		user => $ubuntuUsername,
