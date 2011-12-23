@@ -9,6 +9,7 @@ class redshift ($lat, $lon, $user) {
 		owner => $user,
 	}
 
+	# TODO: check at home why this resource type doesn't work - i.e. missing /home/$user/.config/autostart/ folder or missing file /usr/share/applications/gtk-redshift.desktop
 	file { "/home/$user/.config/autostart/gtk-redshift.desktop":
 		ensure => link,
 		mode => 644,
