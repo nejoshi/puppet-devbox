@@ -9,7 +9,12 @@ class redshift ($lat, $lon, $user) {
 		owner => $user,
 	}
 
-	# TODO: check at home why this resource type doesn't work - i.e. missing /home/$user/.config/autostart/ folder or missing file /usr/share/applications/gtk-redshift.desktop
+	file { "/home/$user/.config/autostart":
+		ensure => directory,
+		mode => 755,
+		owner => $user,
+	}
+
 	file { "/home/$user/.config/autostart/gtk-redshift.desktop":
 		ensure => link,
 		mode => 644,
@@ -18,6 +23,7 @@ class redshift ($lat, $lon, $user) {
 
 		require => [
 			Package['gtk-redshift'],
+			File["/home/$user/.config/autostart"],
 			File["/home/$user/.config/redshift.conf"],
 		],
 	}
