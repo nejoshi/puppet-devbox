@@ -16,6 +16,9 @@ class ruby {
 	exec { '/usr/bin/update-alternatives --set gem /usr/bin/gem1.9.1':
 		unless => '/usr/bin/test "`/bin/readlink /etc/alternatives/gem`" = "/usr/bin/gem1.9.1"',
 		user => root,
-		require => Package['rubygems'],
+		require => [
+			Package['ruby1.9.1'],
+			Package['rubygems'],
+		],
 	}
 }

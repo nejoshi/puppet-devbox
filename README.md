@@ -33,7 +33,7 @@ gedit site.pp
 ```
 
 7. Read through the file & edit the settings to your liking (especially `$ubuntuUsername` if you used something other than `ubuntu`), save & quit.
-8. Run `sudo puppet site.pp`
+8. Run `sudo puppet apply site.pp`
 
 ## Features
 * Installs all the apps you need as a web developer
