@@ -73,7 +73,8 @@ class ubuntu-default-setup ($user, $runUpdate) {
 		'gnomine',
 		'indicator-me',
 		'indicator-messages',
-		'libevolution'
+		'libevolution',
+		'thunderbird'
 	]:
 		ensure => absent,
 	}
