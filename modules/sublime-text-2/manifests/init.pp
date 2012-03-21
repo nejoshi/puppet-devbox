@@ -16,8 +16,8 @@ class sublime-text-2 ($user) {
 
 	untar { '/opt/Sublime Text 2':
 		tarSource => $architecture ? {
-			'i386' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2165.tar.bz2',
-			'x86_64' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2165 x64.tar.bz2',
+			'i386' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2181.tar.bz2',
+			'x86_64' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2181 x64.tar.bz2',
 		},
 		tarOptions => 'xvjf',
 		tarFileName => 'sublime-text-2.tar.bz2',

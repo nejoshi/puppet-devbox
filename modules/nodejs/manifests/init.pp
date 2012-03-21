@@ -6,31 +6,31 @@ class nodejs {
 		ensure => present,
 	}
 
-	file { '/opt/packages/node-v0.6.7.tar.gz':
+	file { '/opt/packages/node-v0.6.13.tar.gz':
 		ensure => file,
 		owner => root,
 		group => root,
-		source => 'puppet:///modules/nodejs/node-v0.6.7.tar.gz',
+		source => 'puppet:///modules/nodejs/node-v0.6.13.tar.gz',
 	}
 
 	exec { 'untar nodejs':
-		command => '/bin/tar -xvzf node-v0.6.7.tar.gz',
-		creates => '/opt/packages/node-v0.6.7',
+		command => '/bin/tar -xvzf node-v0.6.13.tar.gz',
+		creates => '/opt/packages/node-v0.6.13',
 		cwd => '/opt/packages',
 		group => root,
 		user => root,
 
 		require => [
-			File['/opt/packages/node-v0.6.7.tar.gz'],
+			File['/opt/packages/node-v0.6.13.tar.gz'],
 			Package['g++'],
 			Package['libssl-dev'],
 		]
 	}
 
 	exec { 'configure nodejs':
-		command => '/opt/packages/node-v0.6.7/configure',
-		creates => '/opt/packages/node-v0.6.7/build/default',
-		cwd => '/opt/packages/node-v0.6.7',
+		command => '/opt/packages/node-v0.6.13/configure',
+		creates => '/opt/packages/node-v0.6.13/build/default',
+		cwd => '/opt/packages/node-v0.6.13',
 		group => root,
 		path => '/usr/bin',
 		user => root,
@@ -44,7 +44,7 @@ class nodejs {
 	exec { 'install nodejs':
 		command => 'make install',
 		creates => '/usr/local/bin/node',
-		cwd => '/opt/packages/node-v0.6.7',
+		cwd => '/opt/packages/node-v0.6.13',
 		group => root,
 		path => [
 			'/bin',
