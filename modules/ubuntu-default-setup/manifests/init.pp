@@ -66,6 +66,7 @@ class ubuntu-default-setup ($user, $runUpdate) {
 	# remove unneeded packages
 	package {[
 		'aisleriot',
+		'banshee',
 		'evolution-common',
 		'gbrainy',
 		'gnome-mahjongg',
@@ -74,7 +75,8 @@ class ubuntu-default-setup ($user, $runUpdate) {
 		'indicator-me',
 		'indicator-messages',
 		'libevolution',
-		'thunderbird'
+		'thunderbird',
+		'totem'
 	]:
 		ensure => absent,
 	}

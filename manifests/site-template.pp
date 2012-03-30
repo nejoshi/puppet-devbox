@@ -64,6 +64,7 @@ node devbox {
 	}
 	include syncftp
 	include virtualbox
+	include vlc
 }
 
 node serverbox {
