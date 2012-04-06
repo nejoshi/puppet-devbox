@@ -1,4 +1,4 @@
-class ubuntu-default-setup ($user, $runUpdate) {
+class ubuntu-default-setup ($user, $runUpdate, $canonicalArchiveRepoUrl, $googleChromeRepoUrl, $ubuntuArchiveRepoUrl, $virtualboxRepoUrl) {
 	define addAptKey($email) {
 		# $name refers to URL
 		exec { "/usr/bin/wget -q -O - $name | /usr/bin/apt-key add -":
@@ -22,9 +22,8 @@ class ubuntu-default-setup ($user, $runUpdate) {
 		group => root,
 	}
 
-	# ensure we're using the main server because others can be missing files
 	file { '/etc/apt/sources.list':
-		source => 'puppet:///modules/ubuntu-default-setup/sources.list',
+		content => template('ubuntu-default-setup/sources.list.erb'),
 		mode => 644,
 		owner => root,
 		group => root,

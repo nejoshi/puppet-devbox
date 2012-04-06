@@ -10,10 +10,20 @@ node devbox {
 	$redshiftLong = 153.026505
 	$ubuntuUsername = 'ubuntu'
 
+	$canonicalArchiveRepoUrl = 'http://archive.canonical.com/ubuntu'
+	$googleChromeRepoUrl = 'http://dl.google.com/linux/chrome/deb'
+	$ubuntuArchiveRepoUrl = 'http://archive.ubuntu.com/ubuntu'
+	$virtualboxRepoUrl = 'http://download.virtualbox.org/virtualbox/debian'
+
 	# Don't uncomment ubuntu-default-setup below even when testing, as many modules rely on it.  If you don't want to run apt-get update constantly, then set runUpdate to false.
 	class { ubuntu-default-setup:
 		user => $ubuntuUsername,
 		runUpdate => true,
+
+		canonicalArchiveRepoUrl => $canonicalArchiveRepoUrl,
+		googleChromeRepoUrl => $googleChromeRepoUrl,
+		ubuntuArchiveRepoUrl => $ubuntuArchiveRepoUrl,
+		virtualboxRepoUrl => $virtualboxRepoUrl,
 
 		stage => preconfig,
 	}
