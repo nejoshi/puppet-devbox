@@ -1,4 +1,4 @@
-class ubuntu-default-setup ($user, $runUpdate, $canonicalArchiveRepoUrl, $googleChromeRepoUrl, $ubuntuArchiveRepoUrl, $virtualboxRepoUrl) {
+class ubuntu-default-setup ($user, $runUpdate, $canonicalArchiveRepoUrl, $googleChromeRepoUrl, $ppaNodeJsRepoUrl, $ppaSublimeText2RepoUrl, $ubuntuArchiveRepoUrl, $virtualboxRepoUrl) {
 	define addAptKey($email) {
 		# $name refers to URL
 		exec { "/usr/bin/wget -q -O - $name | /usr/bin/apt-key add -":

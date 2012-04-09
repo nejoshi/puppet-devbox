@@ -12,6 +12,8 @@ node devbox {
 
 	$canonicalArchiveRepoUrl = 'http://archive.canonical.com/ubuntu'
 	$googleChromeRepoUrl = 'http://dl.google.com/linux/chrome/deb'
+	$ppaNodeJsRepoUrl = 'http://ppa.launchpad.net/chris-lea/node.js/ubuntu'
+	$ppaSublimeText2RepoUrl = 'http://ppa.launchpad.net/webupd8team/sublime-text-2/ubuntu'
 	$ubuntuArchiveRepoUrl = 'http://archive.ubuntu.com/ubuntu'
 	$virtualboxRepoUrl = 'http://download.virtualbox.org/virtualbox/debian'
 
@@ -22,6 +24,8 @@ node devbox {
 
 		canonicalArchiveRepoUrl => $canonicalArchiveRepoUrl,
 		googleChromeRepoUrl => $googleChromeRepoUrl,
+		ppaNodeJsRepoUrl => $ppaNodeJsRepoUrl,
+		ppaSublimeText2RepoUrl => $ppaSublimeText2RepoUrl,
 		ubuntuArchiveRepoUrl => $ubuntuArchiveRepoUrl,
 		virtualboxRepoUrl => $virtualboxRepoUrl,
 

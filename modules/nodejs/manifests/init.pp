@@ -1,59 +1,6 @@
 class nodejs {
-	package {[
-		'g++', 
-		'libssl-dev'
-	]:
+	package { 'nodejs':
 		ensure => present,
-	}
-
-	file { '/opt/packages/node-v0.6.14.tar.gz':
-		ensure => file,
-		owner => root,
-		group => root,
-		source => 'puppet:///modules/nodejs/node-v0.6.14.tar.gz',
-	}
-
-	exec { 'untar nodejs':
-		command => '/bin/tar -xvzf node-v0.6.14.tar.gz',
-		creates => '/opt/packages/node-v0.6.14',
-		cwd => '/opt/packages',
-		group => root,
-		user => root,
-
-		require => [
-			File['/opt/packages/node-v0.6.14.tar.gz'],
-			Package['g++'],
-			Package['libssl-dev'],
-		]
-	}
-
-	exec { 'configure nodejs':
-		command => '/opt/packages/node-v0.6.14/configure',
-		creates => '/opt/packages/node-v0.6.14/build/default',
-		cwd => '/opt/packages/node-v0.6.14',
-		group => root,
-		path => '/usr/bin',
-		user => root,
-
-		require => [
-			Exec['untar nodejs'],
-			Package['libssl-dev'],
-		]
-	}
-
-	exec { 'install nodejs':
-		command => 'make install',
-		cwd => '/opt/packages/node-v0.6.14',
-		group => root,
-		onlyif => "/usr/bin/test \"`/usr/local/bin/node -v`\" != \"v0.6.14\"",
-		path => [
-			'/bin',
-			'/usr/bin',
-		],
-		timeout => 0,
-		user => root,
-
-		require => Exec['configure nodejs'],
 	}
 
 	exec {'install npm':
@@ -68,8 +15,8 @@ class nodejs {
 		user => root,
 
 		require => [
-			Exec['install nodejs'],
 			Package['curl'],
+			Package['nodejs']
 		]
 	}
 
@@ -93,10 +40,6 @@ class nodejs {
 
 	installNpmPackage {'coffee-script':
 		creates => '/usr/local/bin/coffee',
-	}
-
-	installNpmPackage {'expresso':
-		creates => '/usr/local/bin/expresso',
 	}
 
 	installNpmPackage {'less':
