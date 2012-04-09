@@ -9,6 +9,16 @@ class ubuntu-default-setup ($user, $runUpdate, $canonicalArchiveRepoUrl, $google
 		}
 	}
 
+	define addPpaKey() {
+		# $name refers to signing key
+		exec { "/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $name":
+			unless => "/usr/bin/apt-key list | /bin/grep $name",
+			user => root,
+
+			before => Exec['apt-get update'],
+		}
+	}	
+
 	appendLineToFile { 'add pup alias':
 		file => "/home/$user/.bashrc",
 		line => 'alias pup=\"sudo puppet apply /etc/puppet/manifests/site.pp\"',
@@ -36,6 +46,11 @@ class ubuntu-default-setup ($user, $runUpdate, $canonicalArchiveRepoUrl, $google
 	addAptKey { 'http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc':
 		email => 'info@virtualbox.org',
 	}
+
+	addPpaKey { [
+		'C7917B12', # chris lea's nodejs package
+		'EEA14886', # webupd8team's sublime text 2 package
+	]: }
 
 	exec { 'apt-get update':
 		command => $runUpdate ? {
