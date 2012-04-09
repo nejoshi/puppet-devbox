@@ -14,15 +14,8 @@ class sublime-text-2 ($user) {
 		}
 	}
 
-	untar { '/opt/Sublime Text 2':
-		tarSource => $architecture ? {
-			'i386' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2181.tar.bz2',
-			'x86_64' => 'puppet:///modules/sublime-text-2/Sublime Text 2 Build 2181 x64.tar.bz2',
-		},
-		tarOptions => 'xvjf',
-		tarFileName => 'sublime-text-2.tar.bz2',
-		destDirectory => '/opt',
-		owner => root,
+	package { 'sublime-text-2-beta':
+		ensure => present,
 	}
 
 	exec { '"/opt/Sublime Text 2/sublime_text" --command exit':
@@ -30,7 +23,7 @@ class sublime-text-2 ($user) {
 		environment => [ "HOME=/home/$user", "USER=$user" ],
 		user => $user,
 
-		require => Untar['/opt/Sublime Text 2'],
+		require => Package['sublime-text-2-beta'],
 	}
 
 	# setup Puppet code coloring
@@ -73,7 +66,7 @@ class sublime-text-2 ($user) {
 	file { '/usr/local/bin/sublime':
 		ensure => link,
 		mode => 755,
-		target => '/opt/Sublime Text 2/sublime_text',
+		target => '/usr/bin/sublime-text-2',
 		owner => root,
 	}
 }
