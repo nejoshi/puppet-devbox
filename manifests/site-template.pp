@@ -3,16 +3,12 @@ stage { preconfig:
 }
 
 node devbox {
-	$email = 'chris.khoo@gmail.com'
-	$fullName = 'Chris Khoo'
-	$dualMonitorsLeftMonitorWidth = 1680
-	$redshiftLat = -27.453911
-	$redshiftLong = 153.026505
-	$ubuntuUsername = 'ubuntu'
+	$email = ''
+	$fullName = ''
+	$ubuntuUsername = ''
 
 	$canonicalArchiveRepoUrl = 'http://archive.canonical.com/ubuntu'
 	$googleChromeRepoUrl = 'http://dl.google.com/linux/chrome/deb'
-	$ppaNodeJsRepoUrl = 'http://ppa.launchpad.net/chris-lea/node.js/ubuntu'
 	$ppaSublimeText2RepoUrl = 'http://ppa.launchpad.net/webupd8team/sublime-text-2/ubuntu'
 	$ubuntuArchiveRepoUrl = 'http://archive.ubuntu.com/ubuntu'
 	$virtualboxRepoUrl = 'http://download.virtualbox.org/virtualbox/debian'
@@ -24,7 +20,6 @@ node devbox {
 
 		canonicalArchiveRepoUrl => $canonicalArchiveRepoUrl,
 		googleChromeRepoUrl => $googleChromeRepoUrl,
-		ppaNodeJsRepoUrl => $ppaNodeJsRepoUrl,
 		ppaSublimeText2RepoUrl => $ppaSublimeText2RepoUrl,
 		ubuntuArchiveRepoUrl => $ubuntuArchiveRepoUrl,
 		virtualboxRepoUrl => $virtualboxRepoUrl,
@@ -33,40 +28,16 @@ node devbox {
 	}
 
 	# main
-	class { 'ack-grep':
-		user => $ubuntuUsername,
-	}
-	include alarm-clock-applet
-	include ant
 	include filezilla
 	class { 'git-settings':
 		fullName => $fullName,
 		email => $email,
 		user => $ubuntuUsername,
 	}
-	include freemind
 	include google-chrome
-	class { lamp:
-		rootPassword => 'root',
-		timezone => 'Australia/Brisbane',
-		user => $ubuntuUsername,
-	}
 	include libreoffice
 	include meld
-	class { 'metacity-shortcuts':
-		switchWindowXOffset => $dualMonitorsLeftMonitorWidth,
-		user => $ubuntuUsername,
-	}
-	include nodejs
-	include octave
-	class { redshift:
-		lat => $redshiftLat,
-		lon => $redshiftLong,
-		user => $ubuntuUsername,
-	}
 	include remmina
-	include ruby
-	include skype
 	class { 'ssh-client':
 		user => $ubuntuUsername,
 	}
@@ -76,7 +47,6 @@ node devbox {
 	class { ubuntu-desktop-setup:
 		user => $ubuntuUsername,
 	}
-	include syncftp
 	include virtualbox
 	include vlc
 }
